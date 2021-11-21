@@ -1,0 +1,9 @@
+argparse
+pycryptodome
+pillow
+numpy==1.19.3
+prettytable
+opencv-python
+pandas
+pyfiglet
+image-quality
