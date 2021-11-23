@@ -26,7 +26,11 @@ With Chaya, you can easily protect your privacy by using steganography. Chaya ex
 
 ## Released v1
 
-<img src="https://i.ibb.co/mR1WNwk/chaya-alpha1.png" alt="chaya_v1">
+<p align="center" >
+  <a href="https://xerohack.com/chaya/" >
+    <img src="https://i.ibb.co/mR1WNwk/chaya-alpha1.png" alt="chaya_v1">
+  </a>
+</p>
 
 - [x] automatic experiment mode
 - [x] automatic jpg to png (if specified)
