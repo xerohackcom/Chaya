@@ -9,11 +9,11 @@
 <h2 align="center">Chaya</h2>
 
 <p align="center">
-  <br><br>
+  <br>
   <strong>Advance Image Steganography</strong>
   <br><br>
 
-<p>Using LSB-LPS + AES-256-GCM + FLIF
+<p>Using LSB-LPS + AES-256-GCM + FLIF</p>
 
 ## Right To Privacy!
 
@@ -25,6 +25,8 @@ With Chaya, you can easily protect your privacy by using steganography. Chaya ex
 
 
 ## Released v1
+
+<img src="https://i.ibb.co/mR1WNwk/chaya-alpha1.png" alt="chaya_v1">
 
 - [x] automatic experiment mode
 - [x] automatic jpg to png (if specified)
