@@ -45,10 +45,7 @@ With Chaya, you can easily protect your privacy by using steganography. Chaya ex
 
 FLIF support only works with the following Operating Systems completely!:
 
-- Ubuntu / Pop!_OS / Linux Mint / Blackbuntu
-- All other Linux distributions that support PPA / Ubuntu based
-
-FLIF compression has to be commented from the script for 'Kali Linux', 'Parrot OS' and other direct Debian based system that don't support PPA. This means your compression will not work, but the steganography will work perfectly. Recommended to use a Ubuntu/PopOS VM and use this script.
+- All Linux Distributions!
 
 ### Python Setup
 
@@ -68,15 +65,56 @@ git clone --depth=1 https://github.com/xerohackcom/Chaya.git && cd Chaya && pip3
 
 ```
 
-### System Setup
+### System Setup - Ubuntu Based Distros
 
 ```
 
+sudo apt update
 sudo apt-add-repository ppa:linuxuprising/libpng12
 sudo apt update
 sudo apt install libpng12-0
 
 ```
+
+### System Setup - Debian Based Distros
+
+- First run the following in terminal:
+
+```
+
+sudo apt update
+sudo apt install build-essential devscripts
+
+```
+
+- Now run the following command to create a new source list:
+
+```
+
+sudo nano /etc/apt/sources.list.d/libpng12.list
+
+```
+
+- Add the following lines to it:
+
+```
+
+deb http://ppa.launchpad.net/linuxuprising/libpng12/ubuntu hirsute main 
+deb-src http://ppa.launchpad.net/linuxuprising/libpng12/ubuntu hirsute main 
+
+```
+
+- Save by pressing CTRL+S and exit the editor using CTRL+X. Then run the following command:
+
+```
+
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 1CC3D16E460A94EE17FE581CEA8CACC073C3DB2A
+sudo apt update
+sudo apt install libpng12-0
+
+```
+
+Done! Now you have libpng12-0 successfully setup on Debian/Kali Linux/ParrotOS etc.. 
 
 ### Usage
 
