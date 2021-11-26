@@ -50,10 +50,6 @@ Chaya is for your privacy.
 
 ## Intallation
 
-FLIF support only works with the following Operating Systems completely!:
-
-- All Linux Distributions!
-
 ### Python Setup
 
 If already done, skip to next step.
