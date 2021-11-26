@@ -125,7 +125,7 @@ sudo apt install libpng12-0
 
 Done! Now you have libpng12-0 successfully setup on Debian/Kali/ParrotOS etc.. 
 
-### Usage
+### [4] Usage
 
 
 #### Help Menu
