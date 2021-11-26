@@ -50,17 +50,19 @@ Chaya is for your privacy.
 
 ## Intallation
 
-### Python Setup
+### [1] Python Setup
 
-If already done, skip to next step.
+We have to install pip3 and git using the following command:
 
 ```python
 
-sudo apt install python3-pip
+sudo apt install python3-pip && sudo apt install git
 
 ```
 
-### Get Repository
+### [2] Get Repository
+
+Clone the repository using the following command:
 
 ```python
 
@@ -68,7 +70,9 @@ git clone --depth=1 https://github.com/xerohackcom/Chaya.git && cd Chaya && pip3
 
 ```
 
-### System Setup - Ubuntu Based Distros
+### [3a] System Setup - Ubuntu Based Distros
+
+For distros that support PPA - Ubuntu/PopOS/Mint etc., use the following commands:
 
 ```
 
@@ -79,7 +83,9 @@ sudo apt install libpng12-0
 
 ```
 
-### System Setup - Debian Based Distros
+If you have a debian based distro - Debian/Kali/Parrot etc., follow [3b].
+
+### [3b] System Setup - Debian Based Distros
 
 - First run the following in terminal:
 
@@ -117,7 +123,7 @@ sudo apt install libpng12-0
 
 ```
 
-Done! Now you have libpng12-0 successfully setup on Debian/Kali Linux/ParrotOS etc.. 
+Done! Now you have libpng12-0 successfully setup on Debian/Kali/ParrotOS etc.. 
 
 ### Usage
 
