@@ -11,7 +11,7 @@
     <img src="https://img.shields.io/badge/release-v1-green">
   </a>
    </a>
-  <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">
+  <a href="https://github.com/xerohackcom/Chaya/blob/main/LICENSE">
       <img src="https://img.shields.io/badge/license-AGPL3-_red.svg">
   </a>
   <a href="https://www.python.org/downloads/">
