@@ -1,30 +1,36 @@
+<h1 align="center">
+  <br>
+  <a href="https://github.com/xerohackcom/chaya"><img src="https://i.ibb.co/X2WmCxm/chaya.png" alt="chaya"></a>
+  <br>
+  Chaya
+  <br>
+</h1>
 
-<p align="center" >
-  <a href="https://xerohack.com/chaya/" >
-    <img src="https://i.ibb.co/X2WmCxm/chaya.png" alt="chaya">
+<p align="center">
+  <a href="https://github.com/xerohackcom/chaya">
+    <img src="https://img.shields.io/badge/release-v1-green">
+  </a>
+   </a>
+  <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">
+      <img src="https://img.shields.io/badge/license-AGPL3-_red.svg">
+  </a>
+  <a href="https://www.python.org/downloads/">
+    <img src="https://img.shields.io/badge/language-python3-green">
   </a>
 </p>
 
+<h3 align="center">Right To Privacy</h3>
 
-<h2 align="center">Chaya</h2>
+**Chaya** protects your privacy through steganography, cryptography and compression. It effectively encrypts your payloads using *AES-256-GCM* cryptography, embeds them using *LSB-LPS* steganography technique into images and compresses them using *FLIF* to evade detection by performing lossless compression. 
 
-<p align="center">
-  <br>
-  <strong>Advance Image Steganography</strong>
-  <br><br>
-
-<p>Using LSB-LPS + AES-256-GCM + FLIF</p>
-
-## Right To Privacy!
+Chaya is for your privacy.
 
 <strong><a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights">United Nations Declaration of Human Rights (UDHR) 1948, Article 12 - </strong></a>“No one shall be subjected to arbitrary interference with his privacy, family, home or correspondence, nor to attacks upon his honor and reputation. Everyone has the right to the protection of the law against such interference or attacks.”
 <br><br>
 <strong><a href="https://en.wikipedia.org/wiki/International_Covenant_on_Civil_and_Political_Rights">International Covenant on Civil and Political Rights (ICCPR) 1966, Article 1 - </strong></a>"No one shall be subjected to arbitrary or unlawful interference with his privacy, family, home or correspondence, nor to unlawful attacks on his honor or reputation. Everyone has the right to the protection of the law against such interference or attacks."
 
-With Chaya, you can easily protect your privacy by using steganography. Chaya experiments showcase very promising results by evading detection against various attacks against steganography.
 
-
-## Released v1
+## Features v1
 
 <p align="center" >
   <a href="https://xerohack.com/chaya/" >
@@ -32,14 +38,15 @@ With Chaya, you can easily protect your privacy by using steganography. Chaya ex
   </a>
 </p>
 
-- [x] automatic experiment mode
-- [x] automatic jpg to png (if specified)
-- [x] json data to csv conversion (if specified)
-- [x] support for lsb only steganography
-- [x] add encrypted message size in json data
-- [x] convert cipher_data.json to cipher_data.csv
-- [x] add silent mode (default - verbose)
-- [x] workspace cleaner
+- [x] Supports AES-256-GCM cryptography
+- [x] Supports Standard LSB steganography
+- [x] Supports LSB-LPS steganography
+- [x] Supports FLIF lossless compression
+- [x] Cipher data logs as json
+- [x] Analytics support for your experiments
+- [x] Supports json to csv conversions
+- [x] Highly verbose cipher data logs
+- [x] Workspace cleaner
 
 ## Intallation
 
