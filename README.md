@@ -57,17 +57,13 @@ Use the following command for faster setup:
 **Command For Ubuntu Based Distros**
 
 ```
-
 sudo apt install python3-pip && sudo apt install git && git clone --depth=1 https://github.com/xerohackcom/Chaya.git && cd Chaya && pip3 install -r requirements.txt && sudo apt update && sudo apt-add-repository ppa:linuxuprising/libpng12 && sudo apt update && sudo apt install libpng12-0
-
 ```
 
 **Command For Debian Based Distros**
 
 ```
-
 sudo apt install python3-pip && sudo apt install git && git clone --depth=1 https://github.com/xerohackcom/Chaya.git && cd Chaya && pip3 install -r requirements.txt && sudo apt update && sudo apt install build-essential devscripts && cd ~/ && sudo touch /etc/apt/sources.list.d/libpng12.list && echo "deb http://ppa.launchpad.net/linuxuprising/libpng12/ubuntu hirsute main" | sudo tee -a /etc/apt/sources.list.d/libpng12.list && echo "deb-src http://ppa.launchpad.net/linuxuprising/libpng12/ubuntu hirsute main" | sudo tee -a /etc/apt/sources.list.d/libpng12.list && sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys && sudo apt update && sudo apt install libpng12-0
-
 ```
 
 ## Long Installation
@@ -78,20 +74,16 @@ If you have used 'Easy Installation' commands, skip this section.
 
 We have to install pip3 and git using the following command:
 
-```python
-
+```
 sudo apt install python3-pip && sudo apt install git
-
 ```
 
 ### [2] Get Repository
 
 Clone the repository using the following command:
 
-```python
-
+```
 git clone --depth=1 https://github.com/xerohackcom/Chaya.git && cd Chaya && pip3 install -r requirements.txt
-
 ```
 
 ### [3a] System Setup - Ubuntu Based Distros
@@ -99,12 +91,10 @@ git clone --depth=1 https://github.com/xerohackcom/Chaya.git && cd Chaya && pip3
 For distros that support PPA - Ubuntu/PopOS/Mint etc., use the following commands:
 
 ```
-
 sudo apt update
 sudo apt-add-repository ppa:linuxuprising/libpng12
 sudo apt update
 sudo apt install libpng12-0
-
 ```
 
 If you have a debian based distro - Debian/Kali/Parrot etc., follow [3b].
@@ -114,37 +104,29 @@ If you have a debian based distro - Debian/Kali/Parrot etc., follow [3b].
 - First run the following in terminal:
 
 ```
-
 sudo apt update
 sudo apt install build-essential devscripts
-
 ```
 
 - Now run the following command to create a new source list:
 
 ```
-
 sudo nano /etc/apt/sources.list.d/libpng12.list
-
 ```
 
 - Add the following lines to it:
 
 ```
-
 deb http://ppa.launchpad.net/linuxuprising/libpng12/ubuntu hirsute main 
 deb-src http://ppa.launchpad.net/linuxuprising/libpng12/ubuntu hirsute main 
-
 ```
 
 - Save by pressing CTRL+S and exit the editor using CTRL+X. Then run the following command:
 
 ```
-
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 1CC3D16E460A94EE17FE581CEA8CACC073C3DB2A
 sudo apt update
 sudo apt install libpng12-0
-
 ```
 
 Done! Now you have libpng12-0 successfully setup on Debian/Kali/ParrotOS etc.. 
@@ -155,9 +137,7 @@ Done! Now you have libpng12-0 successfully setup on Debian/Kali/ParrotOS etc..
 ### Help Menu
 
 ```python
-
 python3 chaya.py --help
-
 ```
 
 ### Automatic Operations
@@ -166,9 +146,7 @@ python3 chaya.py --help
 - Run the following command
 
 ```python
-
 python3 chaya.py -enc
-
 ```
 
 ### Output
