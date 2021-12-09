@@ -48,7 +48,31 @@ Chaya is for your privacy.
 - [x] Highly verbose cipher data logs
 - [x] Workspace cleaner
 
-## Intallation
+## Easy Intallation
+
+### One Line Setup
+
+Use the following command for faster setup:
+
+**Command For Ubuntu Based Distros**
+
+```
+
+sudo apt install python3-pip && sudo apt install git && git clone --depth=1 https://github.com/xerohackcom/Chaya.git && cd Chaya && pip3 install -r requirements.txt && sudo apt update && sudo apt-add-repository ppa:linuxuprising/libpng12 && sudo apt update && sudo apt install libpng12-0
+
+```
+
+**Command For Debian Based Distros**
+
+```
+
+sudo apt install python3-pip && sudo apt install git && git clone --depth=1 https://github.com/xerohackcom/Chaya.git && cd Chaya && pip3 install -r requirements.txt && sudo apt update && sudo apt install build-essential devscripts && cd ~/ && sudo touch /etc/apt/sources.list.d/libpng12.list && echo "deb http://ppa.launchpad.net/linuxuprising/libpng12/ubuntu hirsute main" | sudo tee -a /etc/apt/sources.list.d/libpng12.list && echo "deb-src http://ppa.launchpad.net/linuxuprising/libpng12/ubuntu hirsute main" | sudo tee -a /etc/apt/sources.list.d/libpng12.list && sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys && sudo apt update && sudo apt install libpng12-0
+
+```
+
+## Long Installation
+
+If you have used 'Easy Installation' commands, skip this section.
 
 ### [1] Python Setup
 
@@ -125,10 +149,10 @@ sudo apt install libpng12-0
 
 Done! Now you have libpng12-0 successfully setup on Debian/Kali/ParrotOS etc.. 
 
-### [4] Usage
+## Usage
 
 
-#### Help Menu
+### Help Menu
 
 ```python
 
@@ -136,7 +160,7 @@ python3 chaya.py --help
 
 ```
 
-#### Automatic Operations
+### Automatic Operations
 
 - First add few images (png format) to /autoexp/image_raw/
 - Run the following command
@@ -147,7 +171,7 @@ python3 chaya.py -enc
 
 ```
 
-#### Output
+### Output
 
 - Enc + Steg images -> /autoexp/image_steg/
 - Enc + Steg + Comp images -> /autoexp/image_steg_comp/
