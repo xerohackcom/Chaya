@@ -143,6 +143,7 @@ python3 chaya.py --help
 ### Automatic Operations
 
 - First add few images (png format) to /autoexp/image_raw/
+- Remove the txt file from all autoexp sub-folders to avoid errors! 
 - Run the following command
 
 ```python
