@@ -6,46 +6,9 @@
 # >                               < #
 # > ----------------------------- < #
 #
-# [= Version: 1
 # [= GitHub: https://github.com/xerohackcom/Chaya-Advance-Steganography
 # [= Website: https://xerohack.com/chaya/
 # [= Developer: https://www.linkedin.com/in/bhavesh-kaul-cs/
-# 
-
-# Release v1 #
-#
-# > automatic experiment mode
-# > automatic jpg to png (if specified)
-# > json data to csv conversion (if specified)
-# > support for lsb only steganography
-# > add encrypted message size in json data
-# > convert cipher_data.json to cipher_data.csv
-# > support for : lsb-only steganography
-# > add silent mode (default: verbose)
-# > workspace cleaner
-#
-
-# Scheduled v2 #
-#
-# > add analytic subnode : sub analytics after generating main csv
-#   > comparisons : values only csv
-#   > comparisons plotter
-# > manual experiment mode
-# > linear payload chains
-#   > auto chunk payload for optimal storage in multiple images
-# > linked payload chains
-#   > randomize storage for added security against reversing
-# > payload in-memory execution for evading on-disk forensics
-# > video steganography support using ffmpeg
-#
-
-# Scheduled v3 #
-#
-# > support for extensions
-#   > user-side steg & enc scripts instead of chaya core
-# > streamlined analytics core & exporter
-# > script cleanup and optimizations
-#   > better modularity & verbosity
 #
 
 
