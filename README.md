@@ -115,7 +115,7 @@ python3 chaya.py --help
 python3 chaya.py -enc
 ```
 
-### Output
+### Output Data
 
 - Enc + Steg images -> /autoexp/image_steg/
 - Enc + Steg + Comp images -> /autoexp/image_steg_comp/
@@ -123,22 +123,17 @@ python3 chaya.py -enc
 - Analysis data -> /appdata/analysis_results_enc.json
 
 
-## Scheduled v2
+## Future Plan
+The plan is to build this into a modular framework where users can also add their custom scripts for encryption and steganography part. Support for multiple compression algorithms is being added. During the experiments, FLIF was supported, but now JpegXL (JXL) is the new best lossless raster based compression. Support for payload execution and other interesting stuff underway. Can be done combining commands, but not inbuilt. Video steganography using ffmpeg is being tested.
 
-- [ ] test and add support for JXL (JpegXL)
-- [ ] -----> replace flif with jxl as default
-- [ ] add analytic subnode - sub analytics after generating main csv
-- [ ] -----> comparisons - values only csv
-- [ ] -----> comparisons plotter
-- [ ] manual experiment mode
-- [ ] linear payload chains
-- [ ] -----> auto chunk payload for optimal storage in multiple images
-- [ ] linked payload chains
-- [ ] -----> randomize storage for added security against reversing
-- [ ] payload in-memory execution for evading on-disk forensics
-- [ ] video steganography support using ffmpeg
+Please refer to the changelogs for detailed feature plans.
 
-### The Plan
-The plan is to build this into a modular framework where users can also add their custom scripts for encryption and steganography part. Support for multiple compression algorithms is being added. During the experiments, FLIF was supported, but now JpegXL (JXL) is the new best lossless raster based compression. Support for payload execution and other interesting stuff underway. Can be done combining commands, but not inbuilt. Video steganography using ffmpeg is being tested. ZG9udCBsZXQgdGhlIGdsb3dpZXMga25vdyBoYWhh
-  
+
+## License
+
+Chaya is licensed under <a href="https://github.com/xerohackcom/Chaya/blob/main/LICENSE">AGPLv3</a>
+
+## Contributions
+
+Helping to report bugs and fix issues is appreciated.
 
