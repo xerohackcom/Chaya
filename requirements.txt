@@ -1,4 +1,5 @@
 argparse
+tqdm
 pycryptodome
 pillow
 numpy==1.19.3
