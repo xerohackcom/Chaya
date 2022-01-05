@@ -6,11 +6,10 @@ from urllib import request
 from urllib import urlparse
 
 def runlevel():
-    runlevel = "main"
+    runlevel = "dev"
     with open('updater/RUNLEVEL.txt') as f:
         runlevel = f.readline()
-    return runlevel
-
+        return runlevel
 
 def perform_update():
     file_list, files_to_remove = [], []
