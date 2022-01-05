@@ -1,14 +1,7 @@
 from __future__ import ( division, absolute_import, print_function, unicode_literals )
 
-import sys, os, tempfile, logging, zipfile, shutil, re
+import sys, os, tempfile, logging, zipfile, shutil, re, urllib.request
 from distutils.dir_util import copy_tree
-
-if sys.version_info >= (3,):
-    import urllib.request as urllib2
-    import urllib.parse as urlparse
-else:
-    import urllib2
-    import urlparse
 
 def runlevel():
     runlevel = "main"
@@ -54,7 +47,7 @@ def download_file(url, dest=None):
     """ 
     Download and save a file specified by url to dest directory,
     """
-    u = urllib2.urlopen(url)
+    u = urllib.request.urlopen(url)
 
     scheme, netloc, path, query, fragment = urlparse.urlsplit(url)
     filename = os.path.basename(path)
