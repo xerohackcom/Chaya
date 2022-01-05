@@ -330,9 +330,62 @@ def run_manager():
     else:
         RunType_Manual()
 
+# Function > Download Updater Script
+def download_updater():
+    filename = "update.py"
+    filepath = f"updater/{filename}"
+    if os.path.isfile(filename):
+        os.remove(filename)
+    try:
+        urllib.request.urlretrieve("https://raw.githubusercontent.com/xerohackcom/Chaya/main/updater/update.py", filename)
+        if os.path.isfile(filepath):
+            os.remove(filepath)
+        shutil.move(filename, filepath)
+    except Exception as e:
+        msg_status('ERROR', f"Unable to download {c_yellow}update.py{c_red}\n{e}{c_white}\nEXITING!\n")
+        exit()
+
+
+# Function > GitHub Script Version
+def github_version():
+    response = urllib.request.urlopen("https://raw.githubusercontent.com/xerohackcom/Chaya/main/VERSION.txt")
+    for content in response:
+        return int(content)
+
+
+# Function > Current Script Version
+def current_version():
+    version_number = 0
+    with open('VERSION.txt') as f:
+            version_number = f.readline()
+    return int(version_number)
+
+
+# Function > Compare Current Version
+def version_check():
+    current_version, github_version = current_version(), github_version()
+    if current_version < github_version:
+        msg_status("INFO", f"Update Available!")
+        msg_status("INFO", f"Updating Your Script.. Please DO NOT Exit!")
+        try:
+            os.system("python3 updater/update.py")
+        except Exception as e:
+            msg_status('ERROR', f"Unable to start {c_yellow}update/updater.py{c_red}\n{e}{c_white}\nEXITING!\n")
+    elif current_version == github_version:
+        msg_status("INFO", f"You have the latest updates")
+    elif current_version > github_version:
+        msg_status("INFO", f"You are runnnig ahead of the github version!")
+
+
+# Function > Chaya Updater
+def chaya_update():
+    download_updater()
+    version_check()
+
 
 # Function > Chaya banner
 def chaya_banner():
+    version_number = 0
     print(f''' {c_red}
               'i`            
        ^].>Q.  `$>       
@@ -345,8 +398,16 @@ def chaya_banner():
       `R@@@@QQQ@RgQQZ`   
        z#@@@@@QQQQ#J,   {c_clean}  \n''')
     print(f" {c_green}{c_bold}Chaya Advance Steganography{c_clean}")
-    print(f" {c_bold}{c_yellow}     [ v1 ] {c_red} [ 2021 ]{c_clean}")
+    
+    try:
+        with open('VERSION.txt') as f:
+            version_number = list(f.readline())
+            print(f" {c_bold}{c_yellow}     [ {version_number[0]}.{version_number[1]} ] {c_red} [ 2022 ]{c_clean}")
+    except Exception as e:
+        print(f" {c_bold}{c_yellow}     [ v1 ] {c_red} [ 2021 ]{c_clean}")
     print(f" {c_blue}{c_bold}     [ Bhavesh Kaul ]{c_clean}\n")
+
+    chaya_update()
 
 
 # Function > Chaya Help
@@ -427,6 +488,11 @@ def chaya_start():
     group_runmode.add_argument('-rmanx','--runmanualexp', action="store_true")
 
     args = parser.parse_args()
+
+    # if no args passed
+    if not len(sys.argv) > 1:
+        chaya_help()
+        exit()
 
     # special args
     if args.cleardata:
