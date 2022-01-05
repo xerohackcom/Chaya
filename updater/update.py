@@ -12,7 +12,7 @@ else:
 
 def runlevel():
     runlevel = "main"
-    with open('RUNLEVEL.txt') as f:
+    with open('updater/RUNLEVEL.txt') as f:
         runlevel = f.readline()
     return runlevel
 
