@@ -335,12 +335,6 @@ def run_manager():
     else:
         RunType_Manual()
 
-# Function > Determine runlevel
-def check_runlevel():
-    global runlevel
-    with open('updater/RUNLEVEL.txt') as f:
-        runlevel = f.readline()
-
 
 # Function > Download Updater Script
 def download_updater():
@@ -397,8 +391,7 @@ def version_check():
 
 # Function > Chaya Updater
 def chaya_update():
-    check_runlevel()
-    download_updater()
+    #download_updater()
     version_check()
 
 
