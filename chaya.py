@@ -53,7 +53,7 @@ global cipher_data_array
 global image_information
 
 # define runlevel
-runlevel = "main"
+runlevel = "dev"
 
 # temp list for in-memory random id comparison
 temporary_random_id_array = []
