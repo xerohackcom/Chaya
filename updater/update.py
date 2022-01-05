@@ -2,7 +2,7 @@ from __future__ import ( division, absolute_import, print_function, unicode_lite
 
 import sys, os, tempfile, logging, zipfile, shutil, re, urllib.request
 from distutils.dir_util import copy_tree
-from urllib.parse import urlparse
+import urllib.parse as urlparse
 
 def runlevel():
     runlevel = "dev"
