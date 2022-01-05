@@ -4,16 +4,11 @@ import sys, os, tempfile, logging, zipfile, shutil, re, urllib.request
 from distutils.dir_util import copy_tree
 import urllib.parse as urlparse
 
-def runlevel():
-    runlevel = "dev"
-    with open('updater/RUNLEVEL.txt') as f:
-        runlevel = f.readline()
-        return runlevel
+runlevel = "dev"
 
 def perform_update():
+    global runlevel
     file_list, files_to_remove = [], []
-
-    runlevel = runlevel()
 
     # extract archive
     print("Extracting archive")
@@ -86,6 +81,7 @@ def download_file(url, dest=None):
 
 
 if __name__ == "__main__":  # Only run if this file is called directly
+    global runlevel
     print("Updating Chaya")
     runlevel = runlevel()
     url = f"https://github.com/xerohackcom/Chaya/archive/{runlevel}.zip"
