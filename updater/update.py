@@ -1,8 +1,7 @@
 from __future__ import ( division, absolute_import, print_function, unicode_literals )
 
-import sys, os, tempfile, logging, zipfile, shutil, re
+import sys, os, tempfile, logging, zipfile, shutil, re, urllib.request
 from distutils.dir_util import copy_tree
-from urllib.request import request
 from urllib.parse import urlparse
 
 def runlevel():
