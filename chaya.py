@@ -15,10 +15,12 @@
 import sys
 import os
 import platform
+import urllib.request
 import time
 import math
 import json
 import threading
+import shutil
 
 from core.config import *
 from core.colors import *
@@ -49,6 +51,9 @@ global argument_jpg2png
 global argument_silent
 global cipher_data_array
 global image_information
+
+# define runlevel
+runlevel = "main"
 
 # temp list for in-memory random id comparison
 temporary_random_id_array = []
@@ -330,14 +335,25 @@ def run_manager():
     else:
         RunType_Manual()
 
+# Function > Determine runlevel
+def check_runlevel():
+    global runlevel
+    with open('updater/RUNLEVEL.txt') as f:
+        runlevel = f.readline()
+
+
 # Function > Download Updater Script
 def download_updater():
+    global runlevel
+
     filename = "update.py"
     filepath = f"updater/{filename}"
     if os.path.isfile(filename):
+        msg_status("INFO", f"Removing > updater/update.py")
         os.remove(filename)
     try:
-        urllib.request.urlretrieve("https://raw.githubusercontent.com/xerohackcom/Chaya/main/updater/update.py", filename)
+        msg_status("INFO", f"Downloading > updater/update.py")
+        urllib.request.urlretrieve(f"https://raw.githubusercontent.com/xerohackcom/Chaya/{runlevel}/updater/update.py", filename)
         if os.path.isfile(filepath):
             os.remove(filepath)
         shutil.move(filename, filepath)
@@ -348,7 +364,8 @@ def download_updater():
 
 # Function > GitHub Script Version
 def github_version():
-    response = urllib.request.urlopen("https://raw.githubusercontent.com/xerohackcom/Chaya/main/VERSION.txt")
+    global runlevel
+    response = urllib.request.urlopen(f"https://raw.githubusercontent.com/xerohackcom/Chaya/{runlevel}/VERSION.txt")
     for content in response:
         return int(content)
 
@@ -363,22 +380,24 @@ def current_version():
 
 # Function > Compare Current Version
 def version_check():
-    current_version, github_version = current_version(), github_version()
-    if current_version < github_version:
+    current_v, github_v = current_version(), github_version()
+    if current_v < github_v:
         msg_status("INFO", f"Update Available!")
         msg_status("INFO", f"Updating Your Script.. Please DO NOT Exit!")
         try:
+            msg_status("INFO", f"Running > updater/update.py")
             os.system("python3 updater/update.py")
         except Exception as e:
             msg_status('ERROR', f"Unable to start {c_yellow}update/updater.py{c_red}\n{e}{c_white}\nEXITING!\n")
-    elif current_version == github_version:
-        msg_status("INFO", f"You have the latest updates")
-    elif current_version > github_version:
-        msg_status("INFO", f"You are runnnig ahead of the github version!")
+    elif current_v == github_v:
+        msg_status("INFO", f"You have the latest updates!\n")
+    elif current_v > github_v:
+        msg_status("INFO", f"You are runnnig ahead of the github version!\n")
 
 
 # Function > Chaya Updater
 def chaya_update():
+    check_runlevel()
     download_updater()
     version_check()
 
@@ -491,7 +510,6 @@ def chaya_start():
 
     # if no args passed
     if not len(sys.argv) > 1:
-        chaya_help()
         exit()
 
     # special args
