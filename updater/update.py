@@ -30,11 +30,11 @@ def update_setup():
 			if cdir != "downloads":
 				cdir = f"{get_current_script_path().replace('core/utils.py', f'{cdir}')}"
 				msg_status("WARNING", f"{c_red}Deleting Directory > {c_white}{cdir}")
-				#run_cmd(f"rm -rf {cdir}")
+				run_cmd(f"rm -rf {cdir}")
 	for cfile in chaya_files:
 		cfile = f"{get_current_script_path().replace('core/utils.py', f'{cfile}')}"
 		msg_status("WARNING", f"{c_red}Deleting File > {c_white}{cfile}")
-		#run_cmd(f"rm -rf {cfile}")
+		run_cmd(f"rm -rf {cfile}")
 
 	# move folders and files from /downloads/chaya-runtime/
 	new_chaya_files = get_files_in_dir(f"{get_current_script_path().replace('core/utils.py', f'downloads/Chaya-{runtime}/')}")

@@ -363,6 +363,7 @@ def version_check():
 # Function > Download Updater
 def download_updater():
     runtime = current_runtime()
+    print(runtime)
     url = f"https://raw.githubusercontent.com/xerohackcom/Chaya/{runtime}/updater/update.py"
     download_file(url, "req")
 
