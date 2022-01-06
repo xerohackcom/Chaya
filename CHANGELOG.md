@@ -4,5 +4,5 @@
 - [x] (bug fix) requirements missing lib fix
 
 # Version 1.2
-- [x] (improvement) intelligent update system
+- [ ] (improvement) intelligent update system
 - [x] (bug fix) exit script if no args passed

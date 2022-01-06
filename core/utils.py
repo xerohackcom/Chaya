@@ -8,10 +8,14 @@ from prettytable import PrettyTable
 from core.colors import *
 
 
+# - Utilities - #
+
+# Function > Clear Screen
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
+# Function > Notification Printing Service
 def msg_status(type, msg):
     if type == "ERROR":
         print(f"{c_white}[{get_current_time()}]{c_cyan} {c_red}[ERROR]{c_cyan} >{c_yellow} {msg} {c_cyan}")
@@ -23,16 +27,19 @@ def msg_status(type, msg):
         print(f"{c_white}[{get_current_time()}]{c_cyan} {c_white}[-]{c_cyan} >{c_white} {msg} {c_cyan}")
 
 
+# Function > Get List of Files In Directory
 def get_files_in_dir(dir_path):
     files = [f for f in os.listdir(dir_path) if os.path.isfile(os.path.join(dir_path, f))]
     return files
 
 
+# Function > Generate Random Number
 def generate_random_id():
     random_id = random.randint(1,10001)
     return random_id
 
 
+# Function > Generate SHA-256 Hash For A File
 def generate_filesignature_sha256(file_path):
     sha256_hash = hashlib.sha256()
     filehash = ""
@@ -47,12 +54,14 @@ def generate_filesignature_sha256(file_path):
     return filehash
 
 
+# Function > Get Current Time in Hour:Minute:Second Format
 def get_current_time():
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     return current_time
 
 
+# Function > Convert JPG To PNG Format 
 def convert_jpg_to_png(image_path):
     ximg = Image.open(image_path)
     new_image_path = f"{image_path[:-5]}.png"
@@ -60,14 +69,24 @@ def convert_jpg_to_png(image_path):
     os.remove(image_path)
 
 
+# Function > Get Current Script Path
 def get_current_script_path():
     return os.path.realpath(__file__)
 
 
+# Function > Get Length of String
 def utf8len(s):
     return len(s.encode('utf-8'))
 
 
+# Function > File Downloader
+def download_file(url, dest=None):
+    pass
+
+
+# - Workers - #
+
+# Function > Clear All Appdata
 def clear_appdata():
     # get all the files from appdata folder
     data_files = get_files_in_dir("appdata/")
