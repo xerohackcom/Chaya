@@ -8,3 +8,5 @@ opencv-python
 pandas
 pyfiglet
 image-quality
+wget
+requests

@@ -14,13 +14,8 @@
 
 import sys
 import os
-import platform
 import urllib.request
-import time
-import math
 import json
-import threading
-import shutil
 
 from core.config import *
 from core.colors import *
@@ -31,10 +26,7 @@ from core.compression import *
 from core.analysis import Generate_Analysis_Results, Generate_CSV
 
 import argparse
-import pandas
 import tqdm
-from datetime import datetime
-from pyfiglet import figlet_format
 from prettytable import PrettyTable
 from pprint import pprint
 from copy import deepcopy
@@ -51,9 +43,6 @@ global argument_jpg2png
 global argument_silent
 global cipher_data_array
 global image_information
-
-# define runlevel
-runlevel = "dev"
 
 # temp list for in-memory random id comparison
 temporary_random_id_array = []
@@ -336,30 +325,11 @@ def run_manager():
         RunType_Manual()
 
 
-# Function > Download Updater Script
-def download_updater():
-    global runlevel
-
-    filename = "update.py"
-    filepath = f"updater/{filename}"
-    if os.path.isfile(filename):
-        msg_status("INFO", f"Removing > updater/update.py")
-        os.remove(filename)
-    try:
-        msg_status("INFO", f"Downloading > updater/update.py")
-        urllib.request.urlretrieve(f"https://raw.githubusercontent.com/xerohackcom/Chaya/{runlevel}/updater/update.py", filename)
-        if os.path.isfile(filepath):
-            os.remove(filepath)
-        shutil.move(filename, filepath)
-    except Exception as e:
-        msg_status('ERROR', f"Unable to download {c_yellow}update.py{c_red}\n{e}{c_white}\nEXITING!\n")
-        exit()
-
-
 # Function > GitHub Script Version
 def github_version():
-    global runlevel
-    response = urllib.request.urlopen(f"https://raw.githubusercontent.com/xerohackcom/Chaya/{runlevel}/VERSION.txt")
+    runtime = current_runtime()
+    url = f"https://raw.githubusercontent.com/xerohackcom/Chaya/{runtime}/VERSION.txt"
+    response = urllib.request.urlopen(url)
     for content in response:
         return int(content)
 
@@ -368,7 +338,7 @@ def github_version():
 def current_version():
     version_number = 0
     with open('VERSION.txt') as f:
-            version_number = f.readline()
+        version_number = f.readline()
     return int(version_number)
 
 
@@ -381,6 +351,7 @@ def version_check():
         try:
             msg_status("INFO", f"Running > updater/update.py")
             os.system("python3 updater/update.py")
+            exit()
         except Exception as e:
             msg_status('ERROR', f"Unable to start {c_yellow}update/updater.py{c_red}\n{e}{c_white}\nEXITING!\n")
     elif current_v == github_v:
@@ -389,9 +360,17 @@ def version_check():
         msg_status("INFO", f"You are runnnig ahead of the github version!\n")
 
 
+# Function > Download Updater
+def download_updater():
+    runtime = current_runtime()
+    url = f"https://raw.githubusercontent.com/xerohackcom/Chaya/{runtime}/updater/update.py"
+    download_file(url, "req")
+
+
 # Function > Chaya Updater
 def chaya_update():
-    #download_updater()
+    download_updater()
+    run_cmd(f"mv {get_current_script_path().replace('core/utils.py', 'downloads/update.py')} {get_current_script_path().replace('core/utils.py', 'updater/update.py')}")
     version_check()
 
 

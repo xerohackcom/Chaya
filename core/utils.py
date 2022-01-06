@@ -1,6 +1,8 @@
 import os
 import random
 import hashlib
+import wget
+import requests
 from datetime import datetime
 from PIL import Image
 from prettytable import PrettyTable
@@ -25,6 +27,14 @@ def msg_status(type, msg):
         print(f"{c_white}[{get_current_time()}]{c_cyan} {c_yellow}[WARNING]{c_cyan} >{c_white} {msg} {c_cyan}")
     else:
         print(f"{c_white}[{get_current_time()}]{c_cyan} {c_white}[-]{c_cyan} >{c_white} {msg} {c_cyan}")
+
+
+# Function > Run Command Line Arguments
+def run_cmd(cmd):
+    try:
+        os.system(cmd)
+    except Exception as e:
+        msg_status("ERROR", f"Unable to run command:\n{cmd}")
 
 
 # Function > Get List of Files In Directory
@@ -80,9 +90,34 @@ def utf8len(s):
 
 
 # Function > File Downloader
-def download_file(url, dest=None):
-    pass
+def download_file(url, download_with, dest=None):
+    filename = url.split('/')[-1]
+    filepath = f"{get_current_script_path().replace('core/utils.py', '')}downloads/{filename}"
+    if download_with == "wget":
+        try:
+            msg_status("INFO", f"Downloading {url}")
+            wget.download(url)
+            msg_status("INFO", f"Download complete!")
+        except Exception as e:
+            msg_status('ERROR', f'Unable to download file!')
+    else:
+        try:
+            msg_status("INFO", f"Downloading {url}")
+            req = requests.get(url)
+            print(filepath)
+            with open(filepath,'wb') as output_file:
+                output_file.write(req.content)
+            msg_status("INFO", f"Download complete!")
+        except Exception as e:
+            msg_status('ERROR', f'Unable to download file!')
 
+
+# Function > Current Script Runtime
+def current_runtime():
+    runtime = ""
+    with open(f"{get_current_script_path().replace('core/utils.py', '')}RUNTIME.txt") as f:
+        runtime = f.readline()
+    return runtime
 
 # - Workers - #
 
