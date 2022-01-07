@@ -56,6 +56,9 @@ def update_setup():
 		cmd = f"mv {nfile} {get_current_script_path().replace('core/utils.py', '')}"
 		run_cmd(cmd)
 
+	msg_status("INFO", "If there are errors, you can manually move folders and files from /downloads/ or re-clone the repo using: git clone --depth=1 https://github.com/xerohackcom/Chaya.git")
+	msg_status("INFO", "Update Complete!")
+
 
 if __name__ == "__main__":
 	download_update()

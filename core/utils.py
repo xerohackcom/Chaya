@@ -5,7 +5,6 @@ import wget
 import requests
 from datetime import datetime
 from PIL import Image
-from prettytable import PrettyTable
 
 from core.colors import *
 

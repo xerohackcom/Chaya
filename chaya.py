@@ -347,13 +347,6 @@ def version_check():
     current_v, github_v = current_version(), github_version()
     if current_v < github_v:
         msg_status("INFO", f"Update Available!")
-        msg_status("INFO", f"Updating Your Script.. Please DO NOT Exit!")
-        try:
-            msg_status("INFO", f"Running > updater/update.py")
-            os.system("python3 updater/update.py")
-            exit()
-        except Exception as e:
-            msg_status('ERROR', f"Unable to start {c_yellow}update/updater.py{c_red}\n{e}{c_white}\nEXITING!\n")
     elif current_v == github_v:
         msg_status("INFO", f"You have the latest updates!\n")
     elif current_v > github_v:
@@ -363,16 +356,21 @@ def version_check():
 # Function > Download Updater
 def download_updater():
     runtime = current_runtime()
-    print(runtime)
     url = f"https://raw.githubusercontent.com/xerohackcom/Chaya/{runtime}/updater/update.py"
     download_file(url, "req")
-
-
-# Function > Chaya Updater
-def chaya_update():
-    download_updater()
     run_cmd(f"mv {get_current_script_path().replace('core/utils.py', 'downloads/update.py')} {get_current_script_path().replace('core/utils.py', 'updater/update.py')}")
-    version_check()
+
+
+# Function > Run Updater
+def run_updater():
+    download_updater()
+    msg_status("INFO", f"Updating Your Script.. Please DO NOT Exit!")
+    try:
+        msg_status("INFO", f"Running > updater/update.py")
+        os.system("python3 updater/update.py")
+        exit()
+    except Exception as e:
+        msg_status('ERROR', f"Unable to start {c_yellow}update/updater.py{c_red}\n{e}{c_white}\nEXITING!\n")
 
 
 # Function > Chaya banner
@@ -399,7 +397,7 @@ def chaya_banner():
         print(f" {c_bold}{c_yellow}     [ v1 ] {c_red} [ 2021 ]{c_clean}")
     print(f" {c_blue}{c_bold}     [ Bhavesh Kaul ]{c_clean}\n")
 
-    chaya_update()
+    version_check()
 
 
 # Function > Chaya Help
@@ -475,6 +473,7 @@ def chaya_start():
     parser.add_argument('-silent', '--silent', action="store_true")
     parser.add_argument('-cleardata', '--cleardata', action="store_true")
     parser.add_argument("-h", "--help", action="store_true")
+    parser.add_argument("-update", "--update", action="store_true")
     group_runmode = parser.add_mutually_exclusive_group()
     group_runmode.add_argument('-rautox','--runautoexp', action="store_true")
     group_runmode.add_argument('-rmanx','--runmanualexp', action="store_true")
@@ -489,6 +488,8 @@ def chaya_start():
     if args.cleardata:
         clear_appdata()
         exit()
+    if args.update:
+        run_updater()
 
     # settings global variables
     if args.encrypt:
