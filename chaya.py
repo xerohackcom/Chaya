@@ -14,11 +14,8 @@
 
 import sys
 import os
-import platform
-import time
-import math
+import urllib.request
 import json
-import threading
 
 from core.config import *
 from core.colors import *
@@ -29,10 +26,7 @@ from core.compression import *
 from core.analysis import Generate_Analysis_Results, Generate_CSV
 
 import argparse
-import pandas
 import tqdm
-from datetime import datetime
-from pyfiglet import figlet_format
 from prettytable import PrettyTable
 from pprint import pprint
 from copy import deepcopy
@@ -331,8 +325,57 @@ def run_manager():
         RunType_Manual()
 
 
+# Function > GitHub Script Version
+def github_version():
+    runtime = current_runtime()
+    url = f"https://raw.githubusercontent.com/xerohackcom/Chaya/{runtime}/VERSION.txt"
+    response = urllib.request.urlopen(url)
+    for content in response:
+        return int(content)
+
+
+# Function > Current Script Version
+def current_version():
+    version_number = 0
+    with open('VERSION.txt') as f:
+        version_number = f.readline()
+    return int(version_number)
+
+
+# Function > Compare Current Version
+def version_check():
+    current_v, github_v = current_version(), github_version()
+    if current_v < github_v:
+        msg_status("INFO", f"Update Available!")
+    elif current_v == github_v:
+        msg_status("INFO", f"You have the latest updates!\n")
+    elif current_v > github_v:
+        msg_status("INFO", f"You are runnnig ahead of the github version!\n")
+
+
+# Function > Download Updater
+def download_updater():
+    runtime = current_runtime()
+    url = f"https://raw.githubusercontent.com/xerohackcom/Chaya/{runtime}/updater/update.py"
+    download_file(url, "req")
+    run_cmd(f"mv {get_current_script_path().replace('core/utils.py', 'downloads/update.py')} {get_current_script_path().replace('core/utils.py', 'updater/update.py')}")
+
+
+# Function > Run Updater
+def run_updater():
+    download_updater()
+    msg_status("INFO", f"Updating Your Script.. Please DO NOT Exit!")
+    try:
+        msg_status("INFO", f"Running > updater/update.py")
+        os.system("python3 updater/update.py")
+        exit()
+    except Exception as e:
+        msg_status('ERROR', f"Unable to start {c_yellow}update/updater.py{c_red}\n{e}{c_white}\nEXITING!\n")
+
+
 # Function > Chaya banner
 def chaya_banner():
+    version_number = 0
     print(f''' {c_red}
               'i`            
        ^].>Q.  `$>       
@@ -345,8 +388,16 @@ def chaya_banner():
       `R@@@@QQQ@RgQQZ`   
        z#@@@@@QQQQ#J,   {c_clean}  \n''')
     print(f" {c_green}{c_bold}Chaya Advance Steganography{c_clean}")
-    print(f" {c_bold}{c_yellow}     [ v1 ] {c_red} [ 2021 ]{c_clean}")
+    
+    try:
+        with open('VERSION.txt') as f:
+            version_number = list(f.readline())
+            print(f" {c_bold}{c_yellow}     [ {version_number[0]}.{version_number[1]} ] {c_red} [ 2022 ]{c_clean}")
+    except Exception as e:
+        print(f" {c_bold}{c_yellow}     [ v1 ] {c_red} [ 2021 ]{c_clean}")
     print(f" {c_blue}{c_bold}     [ Bhavesh Kaul ]{c_clean}\n")
+
+    version_check()
 
 
 # Function > Chaya Help
@@ -422,16 +473,23 @@ def chaya_start():
     parser.add_argument('-silent', '--silent', action="store_true")
     parser.add_argument('-cleardata', '--cleardata', action="store_true")
     parser.add_argument("-h", "--help", action="store_true")
+    parser.add_argument("-update", "--update", action="store_true")
     group_runmode = parser.add_mutually_exclusive_group()
     group_runmode.add_argument('-rautox','--runautoexp', action="store_true")
     group_runmode.add_argument('-rmanx','--runmanualexp', action="store_true")
 
     args = parser.parse_args()
 
+    # if no args passed
+    if not len(sys.argv) > 1:
+        exit()
+
     # special args
     if args.cleardata:
         clear_appdata()
         exit()
+    if args.update:
+        run_updater()
 
     # settings global variables
     if args.encrypt:

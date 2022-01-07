@@ -1,10 +1,8 @@
 import platform, socket, re, uuid, json, psutil, logging
 from multiprocessing import Process
 
-
 # store system information
 system_information = {}
-
 
 # gather system information
 def get_sysinfo():
