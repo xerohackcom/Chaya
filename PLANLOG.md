@@ -1,6 +1,7 @@
 # In-Progress
-- [x] installer.py
-- [ ] /core/update.py
+- [ ] silent mode arg (feature)
+- [ ] manual mode (feature)
+- [ ] check network before update check (bug fix)
 
 # Version 2
 - [ ] add analytic subnode : sub analytics after generating main csv
@@ -24,3 +25,4 @@
 - [x] support for : lsb-only steganography
 - [x] add silent mode (default: verbose)
 - [x] workspace cleaner
+- [x] update system

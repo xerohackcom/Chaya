@@ -30,7 +30,7 @@ Chaya is for your privacy.
 <strong><a href="https://en.wikipedia.org/wiki/International_Covenant_on_Civil_and_Political_Rights">International Covenant on Civil and Political Rights (ICCPR) 1966, Article 1 - </strong></a>"No one shall be subjected to arbitrary or unlawful interference with his privacy, family, home or correspondence, nor to unlawful attacks on his honor or reputation. Everyone has the right to the protection of the law against such interference or attacks."
 
 
-## Features v1.1
+## Features v1.2
 
 <p align="center" >
   <a href="https://xerohack.com/chaya/" >
@@ -48,16 +48,13 @@ Chaya is for your privacy.
 - [x] Highly verbose cipher data logs
 - [x] Workspace Cleaner
 - [x] Easy installer for initial setup
+- [x] Comes with easy updater
 
-## Changelog v1.1
-
-- (bug fix) missing tqdm from requirements.txt
-- (improvement) install.py for easy dep installations
-- (improvement) readme
-- (improvement) changelog for github
+### Changelogs
 
 Changelog (main channel): https://github.com/xerohackcom/Chaya/blob/main/CHANGELOG.md
 Changelog (dev channel): https://github.com/xerohackcom/Chaya/blob/dev/CHANGELOG.md
+
 
 ## Intallation
 
@@ -126,7 +123,7 @@ python3 chaya.py -enc
 ## Future Plan
 The plan is to build this into a modular framework where users can also add their custom scripts for encryption and steganography part. Support for multiple compression algorithms is being added. During the experiments, FLIF was supported, but now JpegXL (JXL) is the new best lossless raster based compression. Support for payload execution and other interesting stuff underway. Can be done combining commands, but not inbuilt. Video steganography using ffmpeg is being tested.
 
-Please refer to the changelogs for detailed feature plans.
+Please refer to the PLANLOG for detailed feature plans: https://github.com/xerohackcom/Chaya/blob/main/PLANLOG.md
 
 
 ## License
@@ -136,4 +133,3 @@ Chaya is licensed under <a href="https://github.com/xerohackcom/Chaya/blob/main/
 ## Contributions
 
 Helping to report bugs and fix issues is appreciated.
-
