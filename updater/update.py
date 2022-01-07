@@ -39,8 +39,18 @@ def update_setup():
 	# move folders and files from /downloads/chaya-runtime/
 	new_chaya_files = get_files_in_dir(f"{get_current_script_path().replace('core/utils.py', f'downloads/Chaya-{runtime}/')}")
 	new_chaya_dirs = next(os.walk(f"{get_current_script_path().replace('core/utils.py', f'downloads/Chaya-{runtime}/')}"))[1]
-	print(new_chaya_files)
-	print(new_chaya_dirs)
+
+	# move new folder and files except /updater, /downloads
+	for ndir in new_chaya_dirs:
+		if ndir != "updater":
+			if ndir != "downloads":
+				ndir = f"{get_current_script_path().replace('core/utils.py', f'downloads/Chaya-{runtime}/{ndir}')}"
+				msg_status("WARNING", f"{c_red}Moving Directory > {c_white}{ndir}")
+				run_cmd(f"mv {ndir} f'{get_current_script_path().replace('core/utils.py', f'{ndir}')}'")
+	for nfile in new_chaya_files:
+		nfile = f"{get_current_script_path().replace('core/utils.py', f'downloads/Chaya-{runtime}/{nfile}')}"
+		msg_status("WARNING", f"{c_red}Moving File > {c_white}{nfile}")
+		run_cmd(f"mv {nfile} f'{get_current_script_path().replace('core/utils.py', f'{nfile}')}'")
 
 
 if __name__ == "__main__":
