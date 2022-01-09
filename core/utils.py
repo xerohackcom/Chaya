@@ -116,6 +116,7 @@ def current_runtime():
     runtime = ""
     with open(f"{get_current_script_path().replace('core/utils.py', '')}RUNTIME.txt") as f:
         runtime = f.readline()
+        runtime = runtime.rstrip()
     return runtime
 
 # - Workers - #
