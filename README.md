@@ -23,7 +23,15 @@
 
 **Chaya** protects your privacy through steganography, cryptography and compression. It effectively encrypts your payloads using *AES-256-GCM* cryptography, embeds them using *LSB-LPS* steganography technique into images and compresses them using *FLIF* to evade detection by performing lossless compression. 
 
-Chaya is for your privacy.
+Chaya is for your privacy. Chaya is backed by research (I will publish public version whitepaper on xerohack.com), and has proven to be by far the most effective image steganography tool as compared to other FOSS image steganography tools.
+
+**WHY CHAYA IS BETTER THAN THE REST?**
+
+- [x] 0% detection rate using most of the publically available anti-steg tools hide stegexpose and many more
+- [x] 100% data retention with almost the same capacity of standard LSB technique with LBS-LPS
+- [x] Transparent cryptography that gets as good as python has to offer
+
+***There is no way this can be broken using a standard supercomputer unless there are exploits in python libs and python itself.. LSB-LPS will take exponetially large time to brute-force with larger graph images because you will have to attack every X,Y coordinates combo without any error. Making an ML to do so is also quite useless and can be only used for Natural language processing which message is readable to find the coordinates. AFTER THAT, you have to break the encryption. MOREOVER, NLP ML cannot find the coordinates because the bruteforce results will be ciphertext anyway.***
 
 <strong><a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights">United Nations Declaration of Human Rights (UDHR) 1948, Article 12 - </strong></a>“No one shall be subjected to arbitrary interference with his privacy, family, home or correspondence, nor to attacks upon his honor and reputation. Everyone has the right to the protection of the law against such interference or attacks.”
 <br><br>
