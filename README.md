@@ -41,8 +41,8 @@ Chaya is for your privacy. Chaya is backed by research (I will publish public ve
 ## Features v1.2
 
 <p align="center" >
-  <a href="https://xerohack.com/chaya/" >
-    <img src="https://i.ibb.co/mR1WNwk/chaya-alpha1.png" alt="chaya_v1">
+  <a href="https://xerohack.com/" >
+    <img src="https://xerohack.com/assets/images/chaya_1.2.png" alt="chaya_v1.2">
   </a>
 </p>
 
