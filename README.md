@@ -64,7 +64,7 @@ Changelog (main channel): https://github.com/xerohackcom/Chaya/blob/main/CHANGEL
 Changelog (dev channel): https://github.com/xerohackcom/Chaya/blob/dev/CHANGELOG.md
 
 
-## Intallation
+## Installation
 
 ### One Line Setup
 
