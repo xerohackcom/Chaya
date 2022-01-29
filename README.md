@@ -27,11 +27,11 @@ Chaya is for your privacy. Chaya is backed by research (I will publish public ve
 
 **WHY CHAYA IS BETTER THAN THE REST?**
 
-- [x] 0% detection rate using most of the publically available anti-steg tools hide stegexpose and many more
+- [x] 0% detection rate using most of the publically available anti-steg tools like stegexpose and many more
 - [x] 100% data retention with almost the same capacity of standard LSB technique with LBS-LPS
 - [x] Transparent cryptography that gets as good as python has to offer
 
-***There is no way this can be broken using a standard supercomputer unless there are exploits in python libs and python itself.. LSB-LPS will take exponetially large time to brute-force with larger graph images because you will have to attack every X,Y coordinates combo without any error. Making an ML to do so is also quite useless and can be only used for Natural language processing which message is readable to find the coordinates. AFTER THAT, you have to break the encryption. MOREOVER, NLP ML cannot find the coordinates because the bruteforce results will be ciphertext anyway. If for some reason the attacker knows the coordinates to start the de-steg process, they will have to break AES-GCM-256. GCM is better because it offers integrity along with confidentiality, which is why it's the better AES mode).***
+***There is no way this can be broken using a standard supercomputer unless there are exploits in python libs and python itself.. LSB-LPS will take exponetially large time to brute-force with larger graph images because you will have to attack every X,Y coordinates combo without any error. Making an ML to do so is also quite useless and can be only used for Natural language processing for example: which message is readable to find the coordinates. AFTER THAT, you have to break the encryption. MOREOVER, NLP ML cannot find the coordinates because the bruteforce results will be ciphertext anyway. If for some reason the attacker knows the coordinates to start the de-steg process, they will have to break AES-GCM-256. GCM is better because it offers integrity along with confidentiality, which is why it's the better AES mode).***
 
 <strong><a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights">United Nations Declaration of Human Rights (UDHR) 1948, Article 12 - </strong></a>“No one shall be subjected to arbitrary interference with his privacy, family, home or correspondence, nor to attacks upon his honor and reputation. Everyone has the right to the protection of the law against such interference or attacks.”
 <br><br>
@@ -141,3 +141,13 @@ Chaya is licensed under <a href="https://github.com/xerohackcom/Chaya/blob/main/
 ## Contributions
 
 Helping to report bugs and fix issues is appreciated.
+
+## Support Chaya!
+
+You can support Chaya by Monero XMR donations: https://xerohack.com/support.php
+
+<p align="center">
+  <img src="https://xerohack.com/assets/images/monero.png">
+  <Br><br>
+  <b>Address:</b> 4BJLkV4GyaHCYgGSqYBAe418jzaUz6FPe8M14U49SzL5GG81YyoVtWABgJszGUdpUf6MNoWL4kJu7KqQFnWxDvXi34QeA7n
+</p>
