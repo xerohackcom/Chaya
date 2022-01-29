@@ -427,7 +427,7 @@ def chaya_help():
 
     # arguments for runmode
     htable_group_runmode.add_row([f"{c_green}-rautox", "--runautoexp", f"{c_cyan}Run Automatic Experiments {c_blue}(default){c_white}"])
-    htable_group_runmode.add_row([f"{c_green}-rmanx", "--runmanualexp", f"{c_cyan}Help Menu {c_red}(in-development){c_white}"])
+    htable_group_runmode.add_row([f"{c_green}-rmanx", "--runmanualexp", f"{c_cyan}Manual Mode {c_red}(in-development){c_white}"])
 
     # print help menu
     print(f" Operations Options > Mutually Exclusive")
