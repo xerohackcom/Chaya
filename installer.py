@@ -21,7 +21,7 @@ def init():
     if args.ubuntu:
     	run_cmd("sudo apt install python3-pip && sudo apt install git && pip3 install -r requirements.txt && sudo apt update && sudo apt-add-repository ppa:linuxuprising/libpng12 && sudo apt update && sudo apt install -y libpng12-0")
     elif args.debian:
-    	run_cmd("sudo apt install python3-pip && sudo apt install git && pip3 install -r requirements.txt && sudo apt update && sudo apt install build-essential devscripts && cd ~/ && sudo touch /etc/apt/sources.list.d/libpng12.list && echo 'deb http://ppa.launchpad.net/linuxuprising/libpng12/ubuntu hirsute main' | sudo tee -a /etc/apt/sources.list.d/libpng12.list && echo 'deb-src http://ppa.launchpad.net/linuxuprising/libpng12/ubuntu hirsute main' | sudo tee -a /etc/apt/sources.list.d/libpng12.list && sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys && sudo apt update && sudo apt install -y libpng12-0")
+    	run_cmd("sudo apt install python3-pip && sudo apt install git && pip3 install -r requirements.txt && sudo apt update && sudo apt install build-essential devscripts && cd ~/ && sudo touch /etc/apt/sources.list.d/libpng12.list && echo 'deb https://ppa.launchpadcontent.net/linuxuprising/libpng12/ubuntu hirsute main' | sudo tee -a /etc/apt/sources.list.d/libpng12.list && echo 'deb-src https://ppa.launchpadcontent.net/linuxuprising/libpng12/ubuntu hirsute main' | sudo tee -a /etc/apt/sources.list.d/libpng12.list && sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys && sudo apt update && sudo apt install -y libpng12-0")
     else:
     	print("ERROR: Please select a distro variant! [python3 installer.py --help]")
 
