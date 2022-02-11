@@ -128,6 +128,11 @@ python3 chaya.py -enc
 - Analysis data -> /appdata/analysis_results_enc.json
 
 
+### Issues - v1.2.3
+
+- Issue with numpy import and other errors related to this poorly maintained buggy garbage 'scientific' package. Each time they release a version, everything breaks even if we install the specific older version.. what a waste of time. Instead of adding awesome features, I've to fix this bs.
+
+
 ## Future Plan
 The plan is to build this into a modular framework where users can also add their custom scripts for encryption and steganography part. Support for multiple compression algorithms is being added. During the experiments, FLIF was supported, but now JpegXL (JXL) is the new best lossless raster based compression. Support for payload execution and other interesting stuff underway. Can be done combining commands, but not inbuilt. Video steganography using ffmpeg is being tested.
 
