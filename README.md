@@ -130,7 +130,8 @@ python3 chaya.py -enc
 
 ### Issues - v1.2.3
 
-- Issue with numpy import and other errors related to this poorly maintained buggy garbage 'scientific' package. Each time they release a version, everything breaks even if we install the specific older version.. what a waste of time. Instead of adding awesome features, I've to fix this bs.
+- Issue with numpy import (solution under issues)
+- Known bug with image-quality library (not fixed)
 
 
 ## Future Plan
